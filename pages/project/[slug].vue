@@ -1,23 +1,6 @@
 <script setup lang="ts">
-import type { Project } from "~/types/IProject";
-
-const route = useRoute()
-const name = route.params.slug
-const project = ref<Project>({} as Project)
-const { data, status } = useFetch<Project>(`https://api.los-bio.ru/projects/${name}`)
-const isLoaded = ref<boolean>(false)
-const photos = ref<string[]>([])
-
-watch(status, () => {
-  if (status.value === 'success' && data.value) {
-    project.value = data.value
-    photos.value = data.value.photos.map((it) => (`https://api.los-bio.ru/files/${it.catalog}/${it.name}`))
-    isLoaded.value = true
-  }
-})
-
-const currentIndex = ref(0)
-
+const { project, photos, isLoaded } = useProject();
+const currentIndex = ref(0);
 const nextPhoto = () => {
   currentIndex.value = (currentIndex.value + 1) % photos.value.length
 }
@@ -58,6 +41,4 @@ const nextPhoto = () => {
 
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

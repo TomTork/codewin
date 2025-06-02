@@ -1,12 +1,12 @@
 <script setup lang="ts">
-const isCatalogOpen = ref<boolean>(false)
-const isHovered = ref<boolean>(false)
+const isCatalogOpen = ref<boolean>(false);
+const isHovered = ref<boolean>(false);
 const catalogExamples = [
   { title: 'Пример 1' },
   { title: 'Пример 2' },
   { title: 'Пример 3' },
   { title: 'Пример 4' },
-]
+];
 
 </script>
 
@@ -115,6 +115,4 @@ const catalogExamples = [
             a Получить КП
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
